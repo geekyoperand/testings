@@ -5,7 +5,7 @@ const cron = require('node-cron');
 const moment = require('moment-timezone');
  
 // Log file
-const logFile = path.join(__dirname, 'responses99.log');
+const logFile = path.join(__dirname, `responses_${new Date().getTime()}.log`);
  
 // Delay helper
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
