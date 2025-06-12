@@ -137,14 +137,14 @@ const updateAddress = async (user, token, maxRetries = 3) => {
 const performSpin = async (email, name, address, cookieHeader) => {
   try {
     // Step 1: Get Turnstile token task_id
-    const startRes = await axios.get('https://b7d2-2401-4900-1c72-3409-48c3-8702-82c8-6e25.ngrok-free.app/turnstile?url=https%3A%2F%2Fwww.mogumogu.com%2Fspin-wheel%2Fplay&sitekey=0x4AAAAAABdJseUK3fpyoPL2');
+    const startRes = await axios.get('https://9756-2401-4900-1c72-3409-6c8a-dae3-b598-6734.ngrok-free.app/turnstile?url=https%3A%2F%2Fwww.mogumogu.com%2Fspin-wheel%2Fplay&sitekey=0x4AAAAAABdJseUK3fpyoPL2');
     const taskId = startRes.data.task_id;
     logStep(email, 'captcha_task', 'STARTED', `Task ID: ${taskId}`);
     // Step 2: Poll /result
     let tokenResponse;
     for (let i = 237; i < 10000; i++) {
       await delay(1000);
-      const resultRes = await axios.get(`https://b7d2-2401-4900-1c72-3409-48c3-8702-82c8-6e25.ngrok-free.app/result?id=${taskId}`);
+      const resultRes = await axios.get(`https://9756-2401-4900-1c72-3409-6c8a-dae3-b598-6734.ngrok-free.app/result?id=${taskId}`);
       if (resultRes.data?.value) {
         tokenResponse = resultRes.data.value;
         break;
